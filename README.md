@@ -1,6 +1,13 @@
-# HEAPY Edge (site box)
+<p align="center"><img src="docs/assets/readme-banner.png" alt="HEAPY Building Optimization: HEAPY Edge" width="100%"></p>
 
-Finds BAS devices on a client network, reads their points on a schedule, keeps the readings in a local buffer and sends them to HEAPY Trend Tracker over outbound HTTPS. Read-only to the BAS: it never writes to a device.
+<p align="center">
+<img src="https://img.shields.io/badge/version-0.4.0-015de4?style=flat-square" alt="version 0.4.0">
+<img src="https://img.shields.io/badge/Node.js-22.13%2B-015de4?style=flat-square" alt="Node.js 22.13+">
+<img src="https://img.shields.io/badge/BAS-read--only-015de4?style=flat-square" alt="read-only to the BAS">
+<img src="https://img.shields.io/badge/protocols-BACnet%20%C2%B7%20Modbus%20%C2%B7%20SNMP%20%C2%B7%20Haystack%20%C2%B7%20oBIX-4d4d4d?style=flat-square" alt="protocols: BACnet, Modbus, SNMP, Haystack, oBIX">
+</p>
+
+HEAPY Edge is the site box. It finds BAS devices on a client network, reads their points on a schedule, keeps the readings in a local buffer and sends them to HEAPY Trend Tracker over outbound HTTPS. Read-only to the BAS: it never writes to a device.
 
 Plan: `docs/HEAPY Edge - Project Plan.html` (HEAPY Data Collection project).
 
@@ -31,7 +38,7 @@ node core/main.js --data ./data          # or HEAPY_EDGE_DATA=/data
 ```
 Open `http://<box>:8770`, set the page password, set the BAS port address under Settings, turn on any other connections (MS/TP, Modbus, SNMP, Haystack, oBIX) under Settings → Other connections, then Connect to HEAPY with a pairing code.
 
-Docker (Pi 5, mini-PC or Linux VM): `docker compose up -d`. GitHub Actions builds the image for arm64 and amd64 on every push to main and publishes it as `ghcr.io/dys3d/heapy-edge` (`.github/workflows/image.yml`); boxes pull it from there. Host networking is required so BACnet broadcasts reach the BAS network.
+Docker (Pi 5, mini-PC or Linux VM): `docker compose up -d`. GitHub Actions builds the image for arm64 and amd64 on every push to main and publishes it to GitHub Container Registry under the repository's owner (`.github/workflows/image.yml`): `ghcr.io/heapy-bog/heapy-edge` now that the repository is in HEAPY-BOG. `docker-compose.yml` still names the earlier image, `ghcr.io/dys3d/heapy-edge`, and boxes pull from the image it names. Host networking is required so BACnet broadcasts reach the BAS network.
 
 ## AI assistants
 
@@ -62,3 +69,21 @@ Write a program that follows `contracts/driver-protocol.json` (JSON lines on std
 - Scans run inside set time windows; devices that stop answering are retried every 5 minutes, not hammered.
 - Readings are only cleared after the server confirms a batch; resends reuse the batch id so nothing is stored twice.
 - The box key is kept in `secret.json` (mode 600), never in settings or logs. The setup page needs a password and refuses cross-site posts.
+
+## HEAPY-BOG repositories
+
+| Repository | What it is |
+|---|---|
+| [Heapy-Atlas](https://github.com/HEAPY-BOG/Heapy-Atlas) | The building data platform: trend data, HEAPY point names, FDD, functional tests, reset screening |
+| [BOG-Toolkit](https://github.com/HEAPY-BOG/BOG-Toolkit) | The HEAPY BOG Toolkit hub: one front door to every tool |
+| [Utility-Analysis](https://github.com/HEAPY-BOG/Utility-Analysis) | Utility Analysis & Benchmarking: bills, QC and EUI benchmarking in one page |
+| [BOGI-Novant](https://github.com/HEAPY-BOG/BOGI-Novant) | BOGI Novant Setup: guided Novant site setup |
+| [heapy-data-qc](https://github.com/HEAPY-BOG/heapy-data-qc) | HEAPY Data QC for Claude: the data collection QC and FDD plugin |
+| **Heapy-edge** (this one) | HEAPY Edge: the site box that reads BAS points |
+| [HTrendTracker](https://github.com/HEAPY-BOG/HTrendTracker) | The Node Atlas 1.0.0 (archived) |
+
+---
+
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="docs/assets/heapy-logo-white.png"><img src="docs/assets/heapy-logo.png" alt="HEAPY" height="38"></picture></p>
+
+<p align="center"><sub>HEAPY Engineering &middot; Building Optimization &middot; HEAPY Edge</sub></p>
