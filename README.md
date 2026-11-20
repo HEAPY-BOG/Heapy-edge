@@ -76,6 +76,7 @@ Write a program that follows `contracts/driver-protocol.json` (JSON lines on std
 |---|---|
 | [Heapy-Atlas](https://github.com/HEAPY-BOG/Heapy-Atlas) | The building data platform: trend data, HEAPY point names, FDD, functional tests, reset screening |
 | [BOG-Toolkit](https://github.com/HEAPY-BOG/BOG-Toolkit) | The HEAPY BOG Toolkit hub: one front door to every tool |
+| [Project-Hub](https://github.com/HEAPY-BOG/Project-Hub) | The HEAPY Project Hub: one record per project, read by every tool |
 | [Utility-Analysis](https://github.com/HEAPY-BOG/Utility-Analysis) | Utility Analysis & Benchmarking: bills, QC and EUI benchmarking in one page |
 | [BOGI-Novant](https://github.com/HEAPY-BOG/BOGI-Novant) | BOGI Novant Setup: guided Novant site setup |
 | [heapy-data-qc](https://github.com/HEAPY-BOG/heapy-data-qc) | HEAPY Data QC for Claude: the data collection QC and FDD plugin |
