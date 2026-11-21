@@ -11,6 +11,15 @@ HEAPY Edge is the site box. It finds BAS devices on a client network, reads thei
 
 Plan: `docs/HEAPY Edge - Project Plan.html` (HEAPY Data Collection project).
 
+## Status
+
+| Piece | State |
+|---|---|
+| The site box program | Version 0.4.0 |
+| Drivers: BACnet/IP, BACnet MS/TP, Modbus, SNMP, Haystack, oBIX | Each passed its fault suite and 24-hour soak (4 October 2026; see Test) |
+| Local setup page in the HEAPY brand | Done |
+| Read only to the BAS | Built in: it never writes to a device |
+
 ## Layout
 
 | Folder | What it is |
